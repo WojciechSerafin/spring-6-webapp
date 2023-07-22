@@ -2,26 +2,24 @@ package guru.springframework.spring6webapp.bootstrap;
 
 import guru.springframework.spring6webapp.domain.Author;
 import guru.springframework.spring6webapp.domain.Book;
+import guru.springframework.spring6webapp.domain.Publisher;
 import guru.springframework.spring6webapp.repositories.AuthorRepository;
 import guru.springframework.spring6webapp.repositories.BookRepository;
+import guru.springframework.spring6webapp.repositories.PublisherRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-<<<<<<< HEAD
-=======
-/**
- * Created by jt, Spring Framework Guru.
- */
->>>>>>> c841ad75247f15907945198b9f50d836d236ade2
 @Component
 public class BootstrapData implements CommandLineRunner {
 
     private final AuthorRepository authorRepository;
     private final BookRepository bookRepository;
 
-    public BootstrapData(AuthorRepository authorRepository, BookRepository bookRepository) {
+    private final PublisherRepository publisherRepository;
+    public BootstrapData(AuthorRepository authorRepository, BookRepository bookRepository, PublisherRepository publisherRepository) {
         this.authorRepository = authorRepository;
         this.bookRepository = bookRepository;
+        this.publisherRepository = publisherRepository;
     }
 
     @Override
@@ -58,16 +56,15 @@ public class BootstrapData implements CommandLineRunner {
         System.out.println("Author Count: " + authorRepository.count());
         System.out.println("Book Count: " + bookRepository.count());
 
+        Publisher publisher = new Publisher();
+        publisher.setCity("Nowisk");
+        publisher.setName("NifaresSoft");
+        publisher.setZip("666");
+        publisher.setState("Tristram");
+        publisher.setAddress("Demoniczna 666");
+        publisherRepository.save(publisher);
+
+        System.out.println("Publisher Count: " + publisherRepository.count());
 
     }
 }
-
-
-
-
-
-
-
-
-
-
