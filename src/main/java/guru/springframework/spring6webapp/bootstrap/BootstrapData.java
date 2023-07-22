@@ -7,6 +7,12 @@ import guru.springframework.spring6webapp.repositories.BookRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+<<<<<<< HEAD
+=======
+/**
+ * Created by jt, Spring Framework Guru.
+ */
+>>>>>>> c841ad75247f15907945198b9f50d836d236ade2
 @Component
 public class BootstrapData implements CommandLineRunner {
 
@@ -28,16 +34,17 @@ public class BootstrapData implements CommandLineRunner {
         ddd.setTitle("Domain Driven Design");
         ddd.setIsbn("123456");
 
+        Author ericSaved = authorRepository.save(eric);
+        Book dddSaved = bookRepository.save(ddd);
+
         Author rod = new Author();
         rod.setFirstName("Rod");
         rod.setLastName("Johnson");
 
         Book noEJB = new Book();
-        noEJB.setTitle("No EJB");
-        noEJB.setIsbn("456789");
+        noEJB.setTitle("J2EE Development without EJB");
+        noEJB.setIsbn("54757585");
 
-        Author ericSaved = authorRepository.save(eric);
-        Book dddSaved = bookRepository.save(ddd);
         Author rodSaved = authorRepository.save(rod);
         Book noEJBSaved = bookRepository.save(noEJB);
 
@@ -48,8 +55,19 @@ public class BootstrapData implements CommandLineRunner {
         authorRepository.save(rodSaved);
 
         System.out.println("In Bootstrap");
-        System.out.println("Author count: " + authorRepository.count());
-        System.out.println("Book count: " + bookRepository.count());
+        System.out.println("Author Count: " + authorRepository.count());
+        System.out.println("Book Count: " + bookRepository.count());
+
 
     }
 }
+
+
+
+
+
+
+
+
+
+
